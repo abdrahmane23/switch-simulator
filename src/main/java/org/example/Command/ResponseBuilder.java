@@ -11,7 +11,7 @@ public class ResponseBuilder {
 
 
 
-    public String buildVlanResponse(List<VlanInfo> vlans) {
+    public static String buildVlanResponse(List<VlanInfo> vlans) {
 
         StringBuilder response = new StringBuilder();
 
@@ -52,11 +52,10 @@ public class ResponseBuilder {
         return response.toString();
     }
 
-    public String buildInterfaceResponse(List<InterfaceInfo> interfaces) {
+    public static String buildInterfaceResponse(List<InterfaceInfo> interfaces) {
 
         StringBuilder response = new StringBuilder();
 
-        response.append("Switch# show interfaces status\n");
         response.append(String.format(
                 "%-10s%-19s%-13s%-11s%-8s%-6s%s%n",
                 "Port", "Name", "Status", "Vlan", "Duplex", "Speed", "Type"
@@ -92,13 +91,12 @@ public class ResponseBuilder {
             ));
         }
 
-        response.append("Switch#");
 
         return response.toString();
     }
 
 
-    public String buildMacTableResponse(List<MacEntry> macEntries) {
+    public static String buildMacTableResponse(List<MacEntry> macEntries) {
 
         StringBuilder response = new StringBuilder();
         Random random = new Random();
@@ -129,7 +127,7 @@ public class ResponseBuilder {
         return response.toString();
     }
 
-    public String buildHelpResponse() {
+    public static String buildHelpResponse() {
         String instructions = """
                 Instructions to see switch Data:
                 
@@ -160,11 +158,18 @@ public class ResponseBuilder {
 
         return instructions;
     }
-    public String buildSuccessResponse(String command) {
+    public static String buildSuccessResponse() {
         return "Command executed successfully: ";
     }
 
-    public String buildErrorResponse(String message) {
+    public static String buildErrorResponse(String message) {
         return "Error: " + message;
+    }
+
+    public static String buildTerminalResponse(){
+        return "";
+    }
+    public static String buildTelnetlResponse(String command,String response) {
+        return command+System.lineSeparator()+response;
     }
 }

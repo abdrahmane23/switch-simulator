@@ -280,6 +280,7 @@ public class Switch {
                 .filter(
                         vlan-> vlan.getId() == vlanInfo.getId()).findFirst();
     }
+
     private boolean checkVlanDuplicationByName (VlanInfo vlanInfo){
         return vlans.stream().anyMatch(v->v.getName().equals(vlanInfo.getName()));
     }
