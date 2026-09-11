@@ -42,6 +42,9 @@ public class Switch {
 
         VlanInfo vlan30 =
                 new VlanInfo(30, "MANAGEMENT", "ACTIVE");
+        VlanInfo trunk =
+                new VlanInfo(0, "trunk", "ACTIVE");//simulate trunk ports behavior as they appear in interface response
+
 
         vlans.add(vlan1);
         vlans.add(vlan10);

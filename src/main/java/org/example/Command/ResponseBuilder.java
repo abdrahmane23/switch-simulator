@@ -24,6 +24,9 @@ public class ResponseBuilder {
         );
 
         for (VlanInfo vlan : vlans) {
+            if (vlan.getId()==0)
+                continue;//to not make trunk appear in vlan response
+
 
             response.append(
                     String.format(
@@ -68,10 +71,12 @@ public class ResponseBuilder {
 
             String vlan =
                     interfaceInfo.getVlan() != null
-                            ? String.valueOf(interfaceInfo.getVlan().getId())
+                            ? interfaceInfo.getVlan().getId() == 0
+                            ? "trunk"
+                            : String.valueOf(interfaceInfo.getVlan().getId())
                             : "1";
 
-            // arbitrary filler values derived from status/port type
+            // arbitrary filler values derived from status/port type,they will be ignored in parser in the client side
             boolean isConnected = "connected".equalsIgnoreCase(status);
             String duplex = isConnected ? "a-full" : "auto";
             String type = port.startsWith("Gi") ? "1000BaseTX" : "10/100BaseTX";
