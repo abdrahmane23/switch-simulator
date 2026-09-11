@@ -11,6 +11,7 @@ public class CommandHandler {
         this.switchInstance = switchInsatance;
 
     }
+    // all commands pass through this object,its considered as the router to relevant switch methods
 
     public synchronized String handle(String command) {
         return switch (command) {

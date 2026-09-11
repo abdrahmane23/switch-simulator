@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 public class ResponseBuilder {
-
+    //utility class responsible for creating cisco switch like commands and sucess and failure responses for instability commands
 
 
     public static String buildVlanResponse(List<VlanInfo> vlans) {
@@ -167,7 +167,7 @@ public class ResponseBuilder {
     }
 
     public static String buildTerminalResponse(){
-        return "";
+        return "";//considered as config command
     }
     public static String buildTelnetlResponse(String command,String response) {
         return command+System.lineSeparator()+response;

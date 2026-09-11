@@ -4,6 +4,7 @@ import org.example.Model.InterfaceInfo;
 import org.example.Model.VlanInfo;
 
 public class CommandParser {
+    //utility classes for parsing instability commands infos
     public static InterfaceInfo getInterfaceByNameWithIndex(String command,int index) {
         String interfaceName = command.split("\\s+")[index];
         return new InterfaceInfo(interfaceName);

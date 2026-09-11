@@ -53,4 +53,6 @@ public class VlanInfo {
     public void addInterface(InterfaceInfo interfaceInfo) {
         interfaces.add(interfaceInfo);
     }
+
+    // didnt make equals implementation to practice more java stream api
 }
